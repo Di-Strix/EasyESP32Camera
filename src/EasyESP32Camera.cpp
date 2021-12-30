@@ -225,6 +225,7 @@ void EasyESP32Camera::takePicture(bool withFlash, std::function<void(camera_fb_t
   if (!frameBuffer) {
     ESP_LOGE("EasyESP32Camera", "Error taking picture");
     onFailure();
+    return;
   }
 
   onSuccess(frameBuffer);
