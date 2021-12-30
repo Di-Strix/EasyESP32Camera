@@ -98,6 +98,9 @@ bool EasyESP32Camera::init(BoardModel boardModel, CameraSettings cameraSettings,
     return false;
   }
 
+  if (cameraConfig.frame_size < shotSettings.frameSize)
+    shotSettings.frameSize = cameraConfig.frame_size;
+
   this->setShotSettings(shotSettings);
   this->setFlashLedSettings(cameraSettings.flashLedPin, cameraSettings.flashLedInvert);
 
