@@ -17,7 +17,7 @@ struct CameraSettings {
   bool flashLedInvert = false;
   pixformat_t pixelFormat = pixformat_t::PIXFORMAT_JPEG;
   byte frameBufferCountWithPSRam = 2;
-  byte frameBufferCountWithoutPSRam = 2;
+  byte frameBufferCountWithoutPSRam = 1;
   framesize_t maxFrameSizeWithPSRam = framesize_t::FRAMESIZE_UXGA;
   framesize_t maxFrameSizeWithoutPSRam = framesize_t::FRAMESIZE_CIF;
   int xclkFreqHz = 20000000;
