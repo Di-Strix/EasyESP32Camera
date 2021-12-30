@@ -1,10 +1,10 @@
 #include "EasyESP32Camera.h"
 
-bool EasyESP32Camera::init(CameraModel cameraModel, CameraSettings cameraSettings, ShotSettings shotSettings)
+bool EasyESP32Camera::init(BoardModel boardModel, CameraSettings cameraSettings, ShotSettings shotSettings)
 {
   camera_config_t cameraConfig;
-  switch (cameraModel) {
-  case CameraModel::WROVER_KIT:
+  switch (boardModel) {
+  case BoardModel::WROVER_KIT:
     cameraConfig.pin_pwdn = -1;
     cameraConfig.pin_reset = -1;
     cameraConfig.pin_xclk = 21;
@@ -24,7 +24,7 @@ bool EasyESP32Camera::init(CameraModel cameraModel, CameraSettings cameraSetting
     cameraConfig.pin_pclk = 22;
     break;
 
-  case CameraModel::M5STACK_PSRAM:
+  case BoardModel::M5STACK_PSRAM:
     cameraConfig.pin_pwdn = -1;
     cameraConfig.pin_reset = 15;
     cameraConfig.pin_xclk = 27;
@@ -44,7 +44,7 @@ bool EasyESP32Camera::init(CameraModel cameraModel, CameraSettings cameraSetting
     cameraConfig.pin_pclk = 21;
     break;
 
-  case CameraModel::M5STACK_WITHOUT_PSRAM:
+  case BoardModel::M5STACK_WITHOUT_PSRAM:
     cameraConfig.pin_pwdn = -1;
     cameraConfig.pin_reset = 15;
     cameraConfig.pin_xclk = 27;
@@ -64,7 +64,7 @@ bool EasyESP32Camera::init(CameraModel cameraModel, CameraSettings cameraSetting
     cameraConfig.pin_pclk = 21;
     break;
 
-  case CameraModel::AI_THINKER:
+  case BoardModel::AI_THINKER:
     cameraConfig.pin_pwdn = 32;
     cameraConfig.pin_reset = -1;
     cameraConfig.pin_xclk = 0;

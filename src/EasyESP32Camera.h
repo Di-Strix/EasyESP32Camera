@@ -5,7 +5,7 @@
 #include <esp_camera.h>
 #include <functional>
 
-enum class CameraModel {
+enum class BoardModel {
   WROVER_KIT,
   M5STACK_PSRAM,
   M5STACK_WITHOUT_PSRAM,
@@ -66,7 +66,7 @@ class EasyESP32Camera {
   public:
   ~EasyESP32Camera();
 
-  bool init(CameraModel, CameraSettings = CameraSettings(), ShotSettings = ShotSettings());
+  bool init(BoardModel, CameraSettings = CameraSettings(), ShotSettings = ShotSettings());
 
   void setShotSettings(ShotSettings);
   ShotSettings getShotSettings();
