@@ -66,13 +66,45 @@ class EasyESP32Camera {
   public:
   ~EasyESP32Camera();
 
+  /**
+   * @brief Initialises camera module
+   * 
+   * @param BoardModel
+   * @param CameraSettings
+   * @param ShotSettings
+   * 
+   * @return true on successful init
+   * @return false on init failure
+   */
   bool init(BoardModel, CameraSettings = CameraSettings(), ShotSettings = ShotSettings());
 
+  /**
+   * @brief Sets the Shot Settings
+   */
   void setShotSettings(ShotSettings);
+
+  /**
+   * @brief Gets the Shot Settings structure
+   * 
+   * @return ShotSettings 
+   */
   ShotSettings getShotSettings();
 
+  /**
+   * @brief Sets the Flash Led Settings
+   * 
+   * @param pin Flash LED pin
+   * @param invert invert ouput
+   */
   void setFlashLedSettings(int pin, bool invert);
 
+  /**
+   * @brief Tries to take a picture and depending on the result calls corresponding callback
+   * 
+   * @param withFlash enable flash LED
+   * @param onSuccess called on success
+   * @param onFailure called on failure
+   */
   void takePicture(bool withFlash, std::function<void(camera_fb_t*)> onSuccess, std::function<void()> onFailure = [](){});
 };
 
