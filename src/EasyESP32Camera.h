@@ -38,8 +38,8 @@ struct ShotSettings {
   uint8_t WBMode = 0; //[0 - 4] (Auto, Sunny, Cloudy, Office, Home) Only when AWBGain enabled
   bool AEC = true; //Automatic Exposure Correction
   bool AEC_DSP = true; //Automatic Exposure Correction Digital Signal Processing
-  int8_t AELevel; //[-2 - 2] Automatic Exposure Level
-  uint16_t AECValue; //[0 - 1200]
+  int8_t AELevel = 0; //[-2 - 2] Automatic Exposure Level
+  uint16_t AECValue = 0; //[0 - 1200]
   bool AGC = true; //Automatic Gain Control
   uint8_t AGCGain = 0; //[0 - 30] 1x - 31x. Automatic Gain Control Gain. Only when AGC is disabled
   gainceiling_t gainceiling = gainceiling_t::GAINCEILING_2X; //2x - 128x. Only when AGC is enabled
