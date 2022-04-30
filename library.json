@@ -1,6 +1,6 @@
 {
   "name": "Easy ESP32 Camera",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Easily configure and use most common ESP32 Camera boards",
   "keywords": "ESP32, ESP32 Camera, Camera, ESP32Cam",
   "repository": {
@@ -10,13 +10,10 @@
   "authors": [
     {
       "name": "Andrew Ushakov",
-      "email": "",
       "url": "https://github.com/Di-Strix"
     }
   ],
   "license": "MIT",
-  "homepage": "",
-  "dependencies": {},
   "frameworks": "Arduino",
   "platforms": "espressif32"
 }
