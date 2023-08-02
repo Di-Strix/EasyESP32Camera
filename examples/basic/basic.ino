@@ -39,6 +39,11 @@ void setup()
   Serial.print("Initialization ");
   Serial.println(success ? "success" : "fail");
 
+  if (!success) {
+    delay(5000);
+    ESP.restart();
+  }
+
   lastTime = millis();
 }
 
