@@ -234,7 +234,14 @@ void EasyESP32Camera::takePicture(bool withFlash, std::function<void(camera_fb_t
 
   onSuccess(frameBuffer);
 
-  esp_camera_fb_return(frameBuffer);
+  if (this->autoReleaseBuffer)
+    esp_camera_fb_return(frameBuffer);
+  this->autoReleaseBuffer = true;
+}
+
+void EasyESP32Camera::setAutoReleaseBuffer(bool release)
+{
+  this->autoReleaseBuffer = release;
 }
 
 EasyESP32Camera::~EasyESP32Camera()

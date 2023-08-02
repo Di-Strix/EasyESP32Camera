@@ -68,6 +68,8 @@ class EasyESP32Camera {
 
   bool initialized = false;
 
+  bool autoReleaseBuffer = false;
+
   public:
   ~EasyESP32Camera();
 
@@ -111,6 +113,20 @@ class EasyESP32Camera {
    * @param onFailure called on failure
    */
   void takePicture(bool withFlash, std::function<void(camera_fb_t*)> onSuccess, std::function<void()> onFailure = [](){});
+
+  /**
+   * @brief Controls whether the library will automatically release photo buffer
+   * after user callback function is executed.
+   *
+   * @warning When autoReleaseBuffer is set to false, you
+   * must call esp_camera_fb_return(<pointer to the buffer>)
+   * in order to free the buffer when it is not needed anymore.
+   *
+   * @note By default autoReleaseBuffer is set to true.
+   * @note Resets to true after every successful takePicture call.
+   * @note Better to call this function inside onSuccess callback.
+   */
+  void setAutoReleaseBuffer(bool);
 };
 
 #endif //__EASY_ESP32_CAMERA_H__
