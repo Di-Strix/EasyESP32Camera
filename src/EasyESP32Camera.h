@@ -2,9 +2,9 @@
 #define __EASY_ESP32_CAMERA_H__
 
 #include <Arduino.h>
+#include <cmath>
 #include <esp_camera.h>
 #include <functional>
-#include <cmath>
 
 enum class BoardModel {
   WROVER_KIT,
@@ -28,34 +28,34 @@ struct CameraSettings {
 };
 
 struct ShotSettings {
-  framesize_t frameSize = framesize_t::FRAMESIZE_UXGA; //QQVGA-UXGA Do not use sizes above QVGA when not JPEG
-  uint8_t quality = 4; //[0 - 63] lower - better. Values lower than 4 didn't work for me
-  int8_t brightness = 0; //[-2 - 2]
-  int8_t contrast = 0; //[-2 - 2]
-  int8_t saturation = 0; //[-2 - 2]
-  int8_t sharpness = 0; //[-2 - 2]
-  uint8_t specialEffect = 0; //[0 - 6] (No effect, Negative, Grayscale, Red Tint, Green Tint, Blue Tint, Sepia)
-  bool AWB = true; //Auto White Balance
+  framesize_t frameSize = framesize_t::FRAMESIZE_UXGA; // QQVGA-UXGA Do not use sizes above QVGA when not JPEG
+  uint8_t quality = 4; // [0 - 63] lower - better. Values lower than 4 didn't work for me
+  int8_t brightness = 0; // [-2 - 2]
+  int8_t contrast = 0; // [-2 - 2]
+  int8_t saturation = 0; // [-2 - 2]
+  int8_t sharpness = 0; // [-2 - 2]
+  uint8_t specialEffect = 0; // [0 - 6] (No effect, Negative, Grayscale, Red Tint, Green Tint, Blue Tint, Sepia)
+  bool AWB = true; // Auto White Balance
   bool AWBGain = 1;
-  uint8_t WBMode = 0; //[0 - 4] (Auto, Sunny, Cloudy, Office, Home) Only when AWBGain enabled
-  bool AEC = true; //Automatic Exposure Correction
-  bool AEC_DSP = true; //Automatic Exposure Correction Digital Signal Processing
-  int8_t AELevel = 0; //[-2 - 2] Automatic Exposure Level
-  uint16_t AECValue = 0; //[0 - 1200]
-  bool AGC = true; //Automatic Gain Control
-  uint8_t AGCGain = 0; //[0 - 30] 1x - 31x. Automatic Gain Control Gain. Only when AGC is disabled
-  gainceiling_t gainceiling = gainceiling_t::GAINCEILING_2X; //2x - 128x. Only when AGC is enabled
+  uint8_t WBMode = 0; // [0 - 4] (Auto, Sunny, Cloudy, Office, Home) Only when AWBGain enabled
+  bool AEC = true; // Automatic Exposure Correction
+  bool AEC_DSP = true; // Automatic Exposure Correction Digital Signal Processing
+  int8_t AELevel = 0; // [-2 - 2] Automatic Exposure Level
+  uint16_t AECValue = 0; // [0 - 1200]
+  bool AGC = true; // Automatic Gain Control
+  uint8_t AGCGain = 0; // [0 - 30] 1x - 31x. Automatic Gain Control Gain. Only when AGC is disabled
+  gainceiling_t gainceiling = gainceiling_t::GAINCEILING_2X; // 2x - 128x. Only when AGC is enabled
   bool blackPixelCorrection = true;
   bool whitePixelCorrection = true;
-  bool rawGMA = true; //Makes image brighter
-  bool lensCorrection = true; //Corrects brightness fade on the edges of the image caused by lens
+  bool rawGMA = true; // Makes image brighter
+  bool lensCorrection = true; // Corrects brightness fade on the edges of the image caused by lens
   bool horizontalMirror = false;
   bool verticalFlip = false;
   bool downsize = false;
   bool colorbar = false;
 
-  uint16_t flashDelay = 1000; //Time to wait after enabling flash before taking photo (ms)
-  //For detailed description of each parameter - visit https://heyrick.eu/blog/index.php?diary=20210418&keitai=0
+  uint16_t flashDelay = 1000; // Time to wait after enabling flash before taking photo (ms)
+  // For detailed description of each parameter - visit https://heyrick.eu/blog/index.php?diary=20210418&keitai=0
 };
 
 class EasyESP32Camera {
@@ -75,11 +75,11 @@ class EasyESP32Camera {
 
   /**
    * @brief Initialises camera module
-   * 
+   *
    * @param BoardModel
    * @param CameraSettings
    * @param ShotSettings
-   * 
+   *
    * @return true on successful init
    * @return false on init failure
    */
@@ -92,14 +92,14 @@ class EasyESP32Camera {
 
   /**
    * @brief Gets the Shot Settings structure
-   * 
-   * @return ShotSettings 
+   *
+   * @return ShotSettings
    */
   ShotSettings getShotSettings();
 
   /**
    * @brief Sets the Flash Led Settings
-   * 
+   *
    * @param pin Flash LED pin
    * @param invert invert ouput
    */
@@ -107,12 +107,13 @@ class EasyESP32Camera {
 
   /**
    * @brief Tries to take a picture and depending on the result calls corresponding callback
-   * 
+   *
    * @param withFlash enable flash LED
    * @param onSuccess called on success
    * @param onFailure called on failure
    */
-  void takePicture(bool withFlash, std::function<void(camera_fb_t*)> onSuccess, std::function<void()> onFailure = [](){});
+  void takePicture(
+      bool withFlash, std::function<void(camera_fb_t*)> onSuccess, std::function<void()> onFailure = []() {});
 
   /**
    * @brief Controls whether the library will automatically release photo buffer

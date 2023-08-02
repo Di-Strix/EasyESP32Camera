@@ -25,7 +25,7 @@ void setup()
   /**
    * Create CameraSettings structure
    * Every parameter has its default value, but you may change them if you need
-   * 
+   *
    * List of parameters:
    *  int                flashLedPin                     = -1;
    *  bool               flashLedInvert                  = false;
@@ -42,7 +42,7 @@ void setup()
   CameraSettings cameraSettings;
 
   /**
-   * Most commonly you may want to setup the flash led, so you can do this by setting the flashLedPin field and invert it 
+   * Most commonly you may want to setup the flash led, so you can do this by setting the flashLedPin field and invert it
    * using flashLedInvert if needed
    */
   cameraSettings.flashLedPin = 4;

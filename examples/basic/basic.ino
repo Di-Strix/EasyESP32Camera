@@ -4,7 +4,7 @@
 #include <EasyESP32Camera.h>
 
 /**
- * Firstly, create camera class instance 
+ * Firstly, create camera class instance
  */
 EasyESP32Camera camera;
 
@@ -23,16 +23,16 @@ void setup()
   /**
    * Call init function to initialize the camera module
    * It takes up to 3 arguments:
-   *  1. Camera model (required) 
+   *  1. Camera model (required)
    *  2. Camera settings (optional)
    *  3. Shot settings (optional)
-   * 
+   *
    * Available camera models:
    *  WROVER_KIT,
    *  M5STACK_PSRAM,
    *  M5STACK_WITHOUT_PSRAM,
    *  AI_THINKER
-   * 
+   *
    *  Init function returns true or false depending on init success
    */
   bool success = camera.init(BoardModel::AI_THINKER);

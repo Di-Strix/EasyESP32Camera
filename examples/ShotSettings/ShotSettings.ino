@@ -24,7 +24,7 @@ void setup()
   /**
    * Create ShotSettings structure
    * Every parameter has its default value, but you may change them if you need
-   * 
+   *
    * List of parameters:
    *   +---------------+----------------------+--------------------------------+-------------+--------------------------------------------------------------------------+
    *   |   Data type   |    Parameter name    |          Default value         | Value range |                               Description                                |
@@ -55,7 +55,7 @@ void setup()
    *   | bool          | downsize             | false                          |      -      |                                                                          |
    *   | bool          | colorbar             | false                          |      -      |                                                                          |
    *   +---------------+----------------------+--------------------------------+-------------+--------------------------------------------------------------------------+
-   * 
+   *
    *  For more info or some examples visit https://heyrick.eu/blog/index.php?diary=20210418&keitai=0
    */
 
