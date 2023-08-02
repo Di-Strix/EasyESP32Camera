@@ -60,8 +60,10 @@ struct ShotSettings {
 class EasyESP32Camera {
   private:
   ShotSettings shotSettings;
+
   bool flashInverted = false;
   int flashPin = -1;
+
   bool initialized = false;
 
   public:
