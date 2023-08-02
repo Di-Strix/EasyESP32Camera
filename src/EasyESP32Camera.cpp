@@ -8,8 +8,8 @@ bool EasyESP32Camera::init(BoardModel boardModel, CameraSettings cameraSettings,
     cameraConfig.pin_pwdn = -1;
     cameraConfig.pin_reset = -1;
     cameraConfig.pin_xclk = 21;
-    cameraConfig.pin_sscb_sda = 26;
-    cameraConfig.pin_sscb_scl = 27;
+    cameraConfig.pin_sccb_sda = 26;
+    cameraConfig.pin_sccb_scl = 27;
 
     cameraConfig.pin_d7 = 35;
     cameraConfig.pin_d6 = 34;
@@ -28,8 +28,8 @@ bool EasyESP32Camera::init(BoardModel boardModel, CameraSettings cameraSettings,
     cameraConfig.pin_pwdn = -1;
     cameraConfig.pin_reset = 15;
     cameraConfig.pin_xclk = 27;
-    cameraConfig.pin_sscb_sda = 25;
-    cameraConfig.pin_sscb_scl = 23;
+    cameraConfig.pin_sccb_sda = 25;
+    cameraConfig.pin_sccb_scl = 23;
 
     cameraConfig.pin_d7 = 19;
     cameraConfig.pin_d6 = 36;
@@ -48,8 +48,8 @@ bool EasyESP32Camera::init(BoardModel boardModel, CameraSettings cameraSettings,
     cameraConfig.pin_pwdn = -1;
     cameraConfig.pin_reset = 15;
     cameraConfig.pin_xclk = 27;
-    cameraConfig.pin_sscb_sda = 25;
-    cameraConfig.pin_sscb_scl = 23;
+    cameraConfig.pin_sccb_sda = 25;
+    cameraConfig.pin_sccb_scl = 23;
 
     cameraConfig.pin_d7 = 19;
     cameraConfig.pin_d6 = 36;
@@ -68,8 +68,8 @@ bool EasyESP32Camera::init(BoardModel boardModel, CameraSettings cameraSettings,
     cameraConfig.pin_pwdn = 32;
     cameraConfig.pin_reset = -1;
     cameraConfig.pin_xclk = 0;
-    cameraConfig.pin_sscb_sda = 26;
-    cameraConfig.pin_sscb_scl = 27;
+    cameraConfig.pin_sccb_sda = 26;
+    cameraConfig.pin_sccb_scl = 27;
 
     cameraConfig.pin_d7 = 35;
     cameraConfig.pin_d6 = 34;
