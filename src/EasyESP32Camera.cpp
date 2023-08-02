@@ -94,14 +94,13 @@ bool EasyESP32Camera::init(BoardModel boardModel, CameraSettings cameraSettings,
   cameraConfig.fb_location = psramFound() ? camera_fb_location_t::CAMERA_FB_IN_PSRAM : camera_fb_location_t::CAMERA_FB_IN_DRAM;
   cameraConfig.grab_mode = cameraSettings.grabMode;
 
-  esp_err_t err = esp_camera_init(&cameraConfig);
+  this->cameraConfig = cameraConfig;
+
+  esp_err_t err = esp_camera_init(&this->cameraConfig);
   if (err != ESP_OK) {
     ESP_LOGE("EasyESP32Camera", "Camera init failed with error 0x%x", err);
     return false;
   }
-
-  if (cameraConfig.frame_size < shotSettings.frameSize)
-    shotSettings.frameSize = cameraConfig.frame_size;
 
   this->setShotSettings(shotSettings);
   this->setFlashLedSettings(cameraSettings.flashLedPin, cameraSettings.flashLedInvert);
@@ -116,7 +115,7 @@ void EasyESP32Camera::setShotSettings(ShotSettings shotSettings)
   sensor_t* sensor = esp_camera_sensor_get();
 
   if (!this->initialized || this->shotSettings.frameSize != shotSettings.frameSize)
-    sensor->set_framesize(sensor, shotSettings.frameSize);
+    sensor->set_framesize(sensor, std::min(this->cameraConfig.frame_size, shotSettings.frameSize));
 
   if (!this->initialized || this->shotSettings.quality != shotSettings.quality)
     sensor->set_quality(sensor, shotSettings.quality);

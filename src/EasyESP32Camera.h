@@ -4,6 +4,7 @@
 #include <Arduino.h>
 #include <esp_camera.h>
 #include <functional>
+#include <cmath>
 
 enum class BoardModel {
   WROVER_KIT,
@@ -60,6 +61,7 @@ struct ShotSettings {
 class EasyESP32Camera {
   private:
   ShotSettings shotSettings;
+  camera_config_t cameraConfig;
 
   bool flashInverted = false;
   int flashPin = -1;
