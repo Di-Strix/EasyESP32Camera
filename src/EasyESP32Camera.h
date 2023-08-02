@@ -18,6 +18,7 @@ struct CameraSettings {
   pixformat_t pixelFormat = pixformat_t::PIXFORMAT_JPEG;
   byte frameBufferCountWithPSRam = 2;
   byte frameBufferCountWithoutPSRam = 1;
+  camera_grab_mode_t grabMode = camera_grab_mode_t::CAMERA_GRAB_LATEST;
   framesize_t maxFrameSizeWithPSRam = framesize_t::FRAMESIZE_UXGA;
   framesize_t maxFrameSizeWithoutPSRam = framesize_t::FRAMESIZE_CIF;
   int xclkFreqHz = 20000000;

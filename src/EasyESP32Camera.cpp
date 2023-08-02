@@ -91,6 +91,7 @@ bool EasyESP32Camera::init(BoardModel boardModel, CameraSettings cameraSettings,
   cameraConfig.pixel_format = cameraSettings.pixelFormat;
   cameraConfig.frame_size = psramFound() ? cameraSettings.maxFrameSizeWithPSRam : cameraSettings.maxFrameSizeWithoutPSRam;
   cameraConfig.fb_count = psramFound() ? cameraSettings.frameBufferCountWithPSRam : cameraSettings.frameBufferCountWithoutPSRam;
+  cameraConfig.grab_mode = cameraSettings.grabMode;
 
   esp_err_t err = esp_camera_init(&cameraConfig);
   if (err != ESP_OK) {
